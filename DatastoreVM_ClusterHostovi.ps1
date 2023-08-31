@@ -1,5 +1,5 @@
 ﻿# Povezivanje na VMware vCenter
-Connect-VIServer -Server hovcenter.rbj.co.yu -User username -Password password
+Connect-VIServer -Server imehostservera -User korisnik -Password sifra
 
 # Ime datoteke za zapis rezultata
 $outputFile = "C:\Temp\DatastoreVM_ClusterHostovi.txt"
