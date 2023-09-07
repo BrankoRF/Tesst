@@ -1,5 +1,5 @@
 ﻿# Povezivanje na VMware vCenter
-Connect-VIServer -Server imehostservera -User korisnik -Password sifra
+Connect-VIServer -Server hovcenter.rbj.co.yu -User yuasubr -Password 21S@lakazu21azu
 
 # Ime datoteke za zapis rezultata
 $outputFile = "C:\Temp\DatastoreVM.txt"

@@ -1,8 +1,8 @@
 ﻿# Povezivanje na VMware vCenter
-Connect-VIServer -Server imehostservera -User korisnik -Password sifra
+Connect-VIServer -Server drvcenter.rbj.co.yu -User yuasubr -Password 21S@lakazu21azu
 
 # Ime datoteke za zapis rezultata
-$outputFile = "C:\Temp\DatastoreVM_ClusterHostovi.txt"
+$outputFile = "C:\Temp\DatastoreVM_ClusterHostoviDR.txt"
 
 # Funkcija za zapisivanje linije u datoteku
 function WriteToOutputFile($line) {
