@@ -1,6 +1,6 @@
 ﻿# Povezivanje na VMware vCenter
-Connect-VIServer -Server drvcenter.rbj.co.yu -User username -Password pass
-Connect-VIServer -Server hovcenter.rbj.co.yu -User username -Password pass
+Connect-VIServer -Server Host Server name -User username -Password pass
+Connect-VIServer -Server Host Server name -User username -Password pass
 
 # Dobijanje liste svih klastera
 $clusters = Get-Cluster
