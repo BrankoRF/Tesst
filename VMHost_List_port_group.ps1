@@ -1,5 +1,5 @@
 ﻿# Povezivanje na VMware vCenter
-Connect-VIServer -Server drvcenter.rbj.co.yu -User yuasubr -Password 21S@lakazu21azu
+Connect-VIServer -Server host name -User username -Password pass
 
 # Naziv ESXi host servera na kojem želite izlistati port grupe
 $hostServerName = "drpharmwfa11.rbj.co.yu"
