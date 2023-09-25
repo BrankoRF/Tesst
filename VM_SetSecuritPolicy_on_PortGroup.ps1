@@ -1,5 +1,5 @@
 ﻿# Povezivanje na VMware vCenter
-Connect-VIServer -Server drvcenter.rbj.co.yu -User yuasubr -Password 21S@lakazu21azu
+Connect-VIServer -Server ime host servera -User username -Password pass
 
 
 # Naziv virtualne port grupe (Virtual Port Group) za koju želite postaviti sigurnosne politike
