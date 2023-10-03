@@ -1,6 +1,6 @@
 ﻿# Povezivanje na VMware vCenter
-Connect-VIServer -Server hovcenter.rbj.co.yu -User username -Password pass
-Connect-VIServer -Server drvcenter.rbj.co.yu -User username -Password pass
+Connect-VIServer -Server ime vcentra -User username -Password pass
+Connect-VIServer -Server ive vcentra -User username -Password pass
 
 # Ime datoteke za zapis rezultata
 $outputFilePath = "C:\Temp\vm_disk_sizes.csv"
