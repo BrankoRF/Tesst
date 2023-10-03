@@ -6,7 +6,7 @@ Connect-VIServer -Server ime host servera -User username -Password pass
 $portGroupName = "VLAN72"
 
 # Naziv ESXi host servera na kojem se nalazi odabrana port grupa
-$hostServerName = "drpharmwfa13.rbj.co.yu"
+$hostServerName = "ime host servera"
 
 # Pronalaženje odabrane port grupe na host serveru
 $portGroup = Get-VirtualPortGroup -Name $portGroupName -VMHost $hostServerName
