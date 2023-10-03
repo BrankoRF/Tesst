@@ -1,8 +1,8 @@
 ﻿# Povezivanje na VMware vCenter
-Connect-VIServer -Server drvcenter.rbj.co.yu -User useranme -Password 2pass
+Connect-VIServer -Server ImeVservera -User useranme -Password 2pass
 
 # Naziv ESXi host servera na kojem želite izlistati virtualne switcheve
-$hostServerName = "drpharmwfa11.rbj.co.yu"
+$hostServerName = "Ime host servera"
 
 # Pronalaženje odabranog host servera
 $hostServer = Get-VMHost -Name $hostServerName
