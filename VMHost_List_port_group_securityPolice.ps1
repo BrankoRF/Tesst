@@ -1,5 +1,5 @@
 ﻿# Povezivanje na VMware vCenter
-Connect-VIServer -Server ime -User useraname -Password pass
+Connect-VIServer -Server drvcenter.rbj.co.yu -User pass -Password username
 
 # Naziv virtualne port grupe (Virtual Port Group) za koju želite izlistati sigurnosne politike
 $portGroupName = "VLAN72"

@@ -1,0 +1,49 @@
+#Accept the VMware End User License Agreement
+vmaccepteula
+ 
+# clear paritions and install
+install --disk=naa.60060e80123d060050403d0600000083 --overwritevmfs
+
+#set the root password
+rootpw --iscrypted $6$7RAgoHImvzWrB9da$tDlNSep9UQ.VNwDAAHMK9VsaOi43bwAD9oelxzYyUqBFmTOKSsT/G4LhMc66fbx.z1l31FYCoFNmecv05X/EJ.
+ 
+#Host Network Settings
+network --bootproto=static --device=vmnic0 --ip=10.233.250.37 --netmask=255.255.255.0 --gateway=10.233.250.1 --hostname=hopharmwfa13 --vlanid=124
+
+reboot
+
+#Firstboot section 1
+%firstboot --interpreter=busybox
+sleep 30
+#Disable IPv6
+esxcli network ip set --ipv6-enabled=false
+# Enable Maintenance Mode
+esxcli system maintenanceMode set -e true
+# enable & start SSH
+vim-cmd hostsvc/enable_ssh
+vim-cmd hostsvc/start_ssh
+# enable & start ESXi Shell
+vim-cmd hostsvc/enable_esx_shell
+vim-cmd hostsvc/start_esx_shell
+#suppress Shell Warning
+esxcli system settings advanced set -o /UserVars/SuppressShellWarning -i 1
+esxcli system settings advanced set -o /UserVars/ESXiShellTimeOut -i 1
+#add dns
+esxcli network ip dns search add --domain=rbj.co.yu
+esxcli network ip dns server add --server=10.233.239.200
+esxcli network ip dns server add --server=10.233.239.201
+#syslog
+esxcli system syslog config set --loghost='udp://10.233.208.48:514'
+esxcli system syslog reload
+esxcli network firewall ruleset set --ruleset-id=syslog --enabled=true
+esxcli network firewall refresh
+esxcli system hostname set --host hopharmwfa13
+esxcli system hostname set --domain rbj.co.yu
+#add key
+wget http://arryn.rbj.co.yu/kickstart/key/id_ecdsa.pub -O /etc/ssh/keys-root/authorized_keys
+
+#hitachi multipathing
+esxcli storage nmp satp set -s VMW_SATP_DEFAULT_AA -P VMW_PSP_RR
+
+# Final reboot
+esxcli system shutdown reboot -d 15 -r "rebooting after base configuration"

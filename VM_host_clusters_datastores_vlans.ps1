@@ -1,5 +1,5 @@
 ﻿# Povezivanje na VMware vCenter
-Connect-VIServer -Server imevcentra -User username -Password pass
+Connect-VIServer -Server hovcenter.rbj.co.yu -User yuasubr -Password 21S@lakazu21azu
 # Ime datoteke za zapis rezultata
 $outputFilePath = "C:\Temp\vm_host_clusters.csv"
 
