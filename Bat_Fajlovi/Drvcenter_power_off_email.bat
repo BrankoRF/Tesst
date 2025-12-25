@@ -1,0 +1,1 @@
+Powershell.exe -NoProfile -ExecutionPolicy Bypass -File "C:\Users\yuasubr\Documents\PowershellScript\Ugasene_masine_drvcenter_email.ps1" >> "C:\Temp\Logs\Drvcenter_UgaseneMasinejutarnja.log" 2>&1

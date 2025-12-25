@@ -1,6 +1,8 @@
 ﻿# Povezivanje na VMware vCenter
-Connect-VIServer -Server Host Server name -User username -Password pass
-Connect-VIServer -Server Host Server name -User username -Password pass
+#Connect-VIServer -Server drvcenter.rbj.co.yu 
+#Connect-VIServer -Server hovcenter.rbj.co.yu
+Connect-VIServer -Server "ucsvcenter.bankmeridian.com"
+$credential = Get-Credential
 
 # Dobijanje liste svih klastera
 $clusters = Get-Cluster
@@ -30,7 +32,7 @@ foreach ($cluster in $clusters) {
 
 
 # Export podataka o hostovima u CSV fajl
-$exportPath = "C:\Temp\Cluster_Host_version_Patch.csv"
+$exportPath = "C:\Temp\Sloba_Cluster_Host_version_Patch.csv"
 $hostsData | Export-Csv -Path $exportPath -NoTypeInformation
 
 # Odspajanje sa vCenter serverom

@@ -1,0 +1,61 @@
+#Login to vcenter
+$vcenter = "hovcenter"
+
+#Select Cluster
+#$cluster_name = "HO-Citrix"
+
+#Insert expected build
+$expected_build = "21313628"
+
+Connect-VIServer $vcenter
+
+# Create an array to store the results
+$results = @()
+
+# Function to add data to the results array
+function Add-Result {
+    param(
+        [string]$Host,
+        [string]$ESXVersion,
+        [string]$ESXBuild,
+        [string]$BuildMatch
+    )
+
+    $result = New-Object PSObject -Property @{
+        Host = $Host
+        'ESX Version' = $ESXVersion
+        'ESX Build' = $ESXBuild
+        'Build Match' = $BuildMatch
+    }
+
+    $results += $result
+}
+
+# Get cluster information and add to results
+$clusters = @(
+    #"DR-Citrix",
+    #"DR-Core",
+    #"DR-DMZ1",
+    #"DR-Prod",
+    "HO-Prod-Lin",
+    "HO-Prod-Win",
+    "HO-Prod-Win-2",
+    "HO-Remote",
+    "HO-SQL",
+    "HO-Test-Lin",
+    "HO-Test-Win",
+    "HO-Tokens"
+)
+
+foreach ($cluster in $clusters) {
+    $hosts = Get-Cluster $cluster | Get-VMHost
+    foreach ($host in $hosts) {
+        $buildMatch = if ($host.build -eq $expected_build) { "Yes" } else { "No" }
+        Add-Result -Host $host.Name -ESXVersion $host.version -ESXBuild $host.build -BuildMatch $buildMatch
+    }
+}
+
+# Export the results to a CSV file
+$results | Export-Csv -Path "C:\Users\yuasubr\Documents\PowershellScript\Report\Razlike_patcha_po_hostovima.csv" -NoTypeInformation
+
+#Number of hosts with No
