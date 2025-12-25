@@ -1,12 +1,12 @@
 #Login to vcenter
 
-$vcenter = "hovcenter"
+$vcenter = "drvcenter"
 
 #Select Cluster
 #$cluster_name = "HO-Citrix"
 
 #Insert expected build
-$expected_build = "21313628"
+$expected_build = "21930508"
 
 Connect-VIServer $vcenter 
 
