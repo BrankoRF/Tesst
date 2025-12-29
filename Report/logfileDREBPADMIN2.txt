@@ -1,0 +1,15 @@
+﻿2025-09-04 10:07:29 - Povezan na HO vCenter.
+2025-09-04 10:07:42 - Povezan na DR vCenter.
+2025-09-04 10:07:42 - Pronađena VM 'DREBPADMIN2' na HO vCenter.
+2025-09-04 10:07:43 - Nova lokacija za migraciju: 
+Name                           Value                                                                                                                                                          
+----                           -----                                                                                                                                                          
+Destination                    drprodesxi5.rbj.co.yu                                                                                                                                          
+Datastore                      dresxi-prod-kg370-04.33                                                                                                                                        
+Server                         drvcenter.rbj.co.yu                                                                                                                                            
+PortGroup                      VLAN79                                                                                                                                                         
+InventoryLocation              Domain Unit servers                                                                                                                                            
+
+
+
+2025-09-04 16:24:35 - Migracija VM 'DREBPADMIN2' završena uspešno.

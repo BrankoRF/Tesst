@@ -10,6 +10,70 @@ rootpw --iscrypted $6$7RAgoHImvzWrB9da$tDlNSep9UQ.VNwDAAHMK9VsaOi43bwAD9oelxzYyU
 #Host Network Settings
 network --bootproto=static --device=vmnic0 --ip=10.233.250.37 --netmask=255.255.255.0 --gateway=10.233.250.1 --hostname=hopharmwfa13 --vlanid=124
 
+# === OPTIONAL CONFIG BLOCKS (comment/uncomment to activate) ===
+# Remove leading '#' from the section(s) you want to enable.
+#
+# 1) Timezone
+# timezone Europe/Belgrade
+#
+# 2) NTP servers (examples)
+# Prefer configuring NTP in the %firstboot section.
+# # Example (firstboot):
+# #%firstboot --interpreter=busybox
+# # esxcli network firewall ruleset set --ruleset-id=ntpClient --enabled=true
+# # esxcli network firewall refresh
+# # echo "server 10.233.239.10" >> /etc/ntp.conf
+# # echo "server 10.233.239.11" >> /etc/ntp.conf
+# # /etc/init.d/ntpd restart
+#
+# 3) License key (example)
+# # Register license (replace <LICENSE_KEY>)
+# # vim-cmd solo/register_license <LICENSE_KEY>
+#
+# 4) Install VIB/Custom packages (example)
+# # Example: install a VIB from a URL
+# # esxcli software vib install -v http://repo.example/vibs/my-vib.vib
+#
+# 5) vSwitch / PortGroup / VMkernel configuration (examples)
+# # Create VMK for vMotion (example)
+# # esxcli network ip interface add -i vmk1 -p vSwitch0
+# # esxcli network ip interface ipv4 set -i vmk1 -I 10.233.251.10 -N 255.255.255.0 -t static
+# # esxcli network nic up -n vmnic1
+#
+# 6) iSCSI example (enable and add target)
+# # esxcli iscsi software set --enabled=true
+# # esxcli iscsi adapter discovery sendtarget add -A vmhba33 -a 10.10.10.20 -p 3260
+#
+# 7) Firewall rules (examples)
+# # Enable SSH and syslog rules
+# # esxcli network firewall ruleset set --ruleset-id=sshServer --enabled=true
+# # esxcli network firewall ruleset set --ruleset-id=syslog --enabled=true
+# # esxcli network firewall refresh
+#
+# 8) Lockdown mode / DCUI
+# # Enable lockdown mode
+# # vim-cmd hostsvc/enable_lockdown
+# # Disable DCUI
+# # esxcli system settings advanced set -o /UserVars/DCUI.Enabled -i 0
+#
+# 9) Multipathing / MPIO (example)
+# # Example already present in script; additional commands:
+# # esxcli storage nmp satp rule add -s VMW_SATP_DEFAULT_AA -P VMW_PSP_RR -V "naa.*"
+#
+# 10) Post-install cleanup / support bundle
+# # /bin/vm-support -w
+#
+# 11) %pre / %post templates
+# # %pre --interpreter=busybox
+# # echo "Preinstall checks here"
+# # %end
+# # %post --interpreter=busybox
+# # echo "Postinstall actions here"
+# # esxcli system settings advanced set -o /UserVars/SuppressShellWarning -i 1
+# # %end
+#
+# === End of optional blocks ===
+
 reboot
 
 #Firstboot section 1

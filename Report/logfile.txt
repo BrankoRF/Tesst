@@ -1,0 +1,103 @@
+﻿2025-09-04 16:57:28 - Povezan na HO vCenter.
+2025-09-04 16:57:37 - Povezan na DR vCenter.
+2025-09-04 16:57:37 - Pronađena VM 'DREBPPDF' na HO vCenter.
+2025-09-04 16:57:38 - Nova lokacija za migraciju: 
+Name                           Value                                                                                                                                                          
+----                           -----                                                                                                                                                          
+Destination                    drprodesxi5.rbj.co.yu                                                                                                                                          
+Datastore                      dresxi-prod-kg370-04.33                                                                                                                                        
+Server                         drvcenter.rbj.co.yu                                                                                                                                            
+PortGroup                      VLAN79                                                                                                                                                         
+InventoryLocation              Domain Unit servers                                                                                                                                            
+
+
+
+2025-09-04 16:58:55 - Migracija VM 'DREBPPDF' završena uspešno.
+2025-09-04 17:00:56 - Povezan na HO vCenter.
+2025-09-04 17:01:13 - Povezan na DR vCenter.
+2025-09-04 17:01:14 - Pronađena VM 'DREBPPDF' na HO vCenter.
+2025-09-04 17:01:14 - Nova lokacija za migraciju: 
+Name                           Value                                                                                                                                                          
+----                           -----                                                                                                                                                          
+Destination                    drprodesxi6.rbj.co.yu                                                                                                                                          
+Datastore                      dresxi-prod-kg370-04.33                                                                                                                                        
+Server                         drvcenter.rbj.co.yu                                                                                                                                            
+PortGroup                      VLAN79                                                                                                                                                         
+InventoryLocation              Domain Unit servers                                                                                                                                            
+
+
+
+2025-09-04 17:02:32 - Migracija VM 'DREBPPDF' završena uspešno.
+2025-09-04 17:03:46 - Povezan na HO vCenter.
+2025-09-04 17:03:56 - Povezan na DR vCenter.
+2025-09-04 17:03:57 - Pronađena VM 'DREBPPDF' na HO vCenter.
+2025-09-04 17:03:57 - Nova lokacija za migraciju: 
+Name                           Value                                                                                                                                                          
+----                           -----                                                                                                                                                          
+Destination                    drprodesxi6.rbj.co.yu                                                                                                                                          
+Datastore                      dresxi-prod-kg370-04.33                                                                                                                                        
+Server                         drvcenter.rbj.co.yu                                                                                                                                            
+PortGroup                      VLAN79                                                                                                                                                         
+InventoryLocation              Domain Unit servers                                                                                                                                            
+
+
+
+2025-09-04 20:55:31 - Migracija VM 'DREBPPDF' završena uspešno.
+2025-09-04 20:57:13 - Povezan na HO vCenter.
+2025-09-04 20:57:14 - Povezan na DR vCenter.
+2025-09-04 20:57:15 - Pronađena VM 'DREBPPDF2' na HO vCenter.
+2025-09-04 20:57:15 - Nova lokacija za migraciju: 
+Name                           Value                                                                                                                                                          
+----                           -----                                                                                                                                                          
+Destination                    drprodesxi6.rbj.co.yu                                                                                                                                          
+Datastore                      dresxi-prod-KG370-05.5B                                                                                                                                        
+Server                         drvcenter.rbj.co.yu                                                                                                                                            
+PortGroup                      VLAN79                                                                                                                                                         
+InventoryLocation              Domain Unit servers                                                                                                                                            
+
+
+
+2025-09-04 21:36:39 - Povezan na HO vCenter.
+2025-09-04 21:36:50 - Povezan na DR vCenter.
+2025-09-04 21:36:50 - Pronađena VM 'DREBPPDF2' na HO vCenter.
+2025-09-04 21:36:51 - Nova lokacija za migraciju: 
+Name                           Value                                                                                                                                                          
+----                           -----                                                                                                                                                          
+Destination                    drprodesxi6.rbj.co.yu                                                                                                                                          
+Datastore                      dresxi-prod-KG370-05.5B                                                                                                                                        
+Server                         drvcenter.rbj.co.yu                                                                                                                                            
+PortGroup                      VLAN79                                                                                                                                                         
+InventoryLocation              Domain Unit servers                                                                                                                                            
+
+
+
+2025-09-04 21:36:52 - Došlo je do greške prilikom migracije VM 'DREBPPDF2': 04.09.25 21:36:52	Move-VM		Operation is not valid due to the current state of the object.	
+2025-09-05 08:30:24 - Povezan na HO vCenter.
+2025-09-05 08:30:34 - Povezan na DR vCenter.
+2025-09-05 08:30:34 - Pronađena VM 'DREBPADMIN' na HO vCenter.
+2025-09-05 08:30:34 - Nova lokacija za migraciju: 
+Name                           Value                                                                                                                                                          
+----                           -----                                                                                                                                                          
+Destination                    drprodesxi6.rbj.co.yu                                                                                                                                          
+Datastore                      dresxi-prod-kg370-04.33                                                                                                                                        
+Server                         drvcenter.rbj.co.yu                                                                                                                                            
+PortGroup                      VLAN79                                                                                                                                                         
+InventoryLocation              Domain Unit servers                                                                                                                                            
+
+
+
+2025-09-05 08:30:35 - Došlo je do greške prilikom migracije VM 'DREBPADMIN': 05.09.25 08:30:35	Move-VM		Operation is not valid due to the current state of the object.	
+2025-09-10 08:29:52 - Povezan na HO vCenter.
+2025-09-10 08:30:19 - Povezan na DR vCenter.
+2025-09-10 08:30:20 - Pronađena VM 'Microsoft Windows Server 2022 Standard_DR' na HO vCenter.
+2025-09-10 08:30:20 - Nova lokacija za migraciju: 
+Name                           Value                                                                                                                                                          
+----                           -----                                                                                                                                                          
+Destination                    drprodesxi6.rbj.co.yu                                                                                                                                          
+Datastore                      dresxi-lib-kg370-07.07                                                                                                                                         
+Server                         drvcenter.rbj.co.yu                                                                                                                                            
+InventoryLocation              Domain Unit servers                                                                                                                                            
+
+
+
+2025-09-10 09:20:45 - Migracija VM 'Microsoft Windows Server 2022 Standard_DR' završena uspešno.
