@@ -1,0 +1,62 @@
+Import-Module VMware.PowerCLI
+
+# Unesi ESXi host i kredencijale
+$vmHost = Read-Host "Unesi ESXi host adresu (npr. esxi01.domain.com)"
+Write-Host "Unesi kredencijale za ESXi host:" -ForegroundColor Cyan
+$credential = Get-Credential
+
+# Poveži se direktno na ESXi host
+try {
+    Write-Host "Povezivanje na ESXi host '$vmHost'..." -ForegroundColor Cyan
+    Connect-VIServer -Server $vmHost -Credential $credential -ErrorAction Stop
+    Write-Host "Uspešno povezan na ESXi host '$vmHost'" -ForegroundColor Green
+}
+catch {
+    Write-Host "Greška pri povezivanju na ESXi host: $_" -ForegroundColor Red
+    exit
+}
+
+# Unesi datastore ime
+$datastoreName = Read-Host "Unesi Datastore ime za unmount"
+
+# Proveri da li postoje
+$esxiHost = Get-VMHost -Name $vmHost -ErrorAction SilentlyContinue
+$datastore = Get-Datastore -Name $datastoreName -ErrorAction SilentlyContinue
+
+if (-not $esxiHost) {
+    Write-Host "Host '$vmHost' nije pronađen!" -ForegroundColor Red
+    Disconnect-VIServer -Server $vmHost -Confirm:$false
+    exit
+}
+
+if (-not $datastore) {
+    Write-Host "Datastore '$datastoreName' nije pronađen!" -ForegroundColor Red
+    Disconnect-VIServer -Server $vmHost -Confirm:$false
+    exit
+}
+
+# Proveri da li ima VM-ova na tom datastore-u za ovaj host
+$vmsOnDatastore = Get-VM -Datastore $datastore | Where-Object { $_.VMHost.Name -eq $vmHost }
+if ($vmsOnDatastore) {
+    Write-Host "UPOZORENJE: Postoje VM-ovi na datastore-u '$datastoreName' na host-u '$vmHost':" -ForegroundColor Yellow
+    $vmsOnDatastore | Select-Object Name, PowerState | Format-Table -AutoSize
+    $confirm = Read-Host "Da li želiš da nastaviš sa unmount? (Da/Ne)"
+    if ($confirm -ne "Da") {
+        Write-Host "Unmount otkazan." -ForegroundColor Cyan
+        Disconnect-VIServer -Server $vmHost -Confirm:$false
+        exit
+    }
+}
+
+# Unmount datastore sa hosta
+try {
+    Write-Host "Unmounting datastore '$datastoreName' sa hosta '$vmHost'..." -ForegroundColor Cyan
+    Remove-Datastore -Datastore $datastore -VMHost $esxiHost -Confirm:$false
+    Write-Host "Datastore '$datastoreName' uspešno unmount-ovan sa hosta '$vmHost'." -ForegroundColor Green
+}
+catch {
+    Write-Host "Greška prilikom unmount-a: $_" -ForegroundColor Red
+}
+
+# Diskonektuj se sa ESXi hosta
+Disconnect-VIServer -Server $vmHost -Confirm:$false
